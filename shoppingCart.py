@@ -95,6 +95,15 @@ def testDecimalsUptoTwo(price):
     else:
         print('Test Success: Cart total is not more than two decimals')
 
+def testDecimalsAreRoundUp():
+    val = 0.565
+    cart = testCreateEmptyCart()
+    if (cart.roundUp(val) == 0.57):
+        print('Test Success: Value is rounded up')
+        
+    else:
+        print('Error: Value is not rounding up' )
+
 def testAddSingleProductToCart():
     cart = testCreateEmptyCartWithOneProduct()
     productName = 'Dove Soap'
@@ -111,7 +120,7 @@ def testAddSingleProductToCart():
         print('Test Success:  Cart total is equal to product price {}'.format(39.99))
     else:
         print('Error: Cart total is not correct. Expected {}'.format(39.99))
-    
+    testDecimalsAreRoundUp()
     testDecimalsUptoTwo(total)
     return cart
 
